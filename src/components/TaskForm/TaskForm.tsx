@@ -96,8 +96,7 @@ const EMPTY: TaskFormData = {
             onChange={(e) => set('title', e.target.value)}
             onBlur={handleBlurTitle}
             aria-invalid={Boolean(errors.title) || undefined}
-            aria-describedby={errors.title ? titleErrId : undefined}
-          />
+            aria-describedby={errors.title ? titleErrId : undefined}/>
           {errors.title && (
             <ExclamationCircleIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-red-600" />
           )}
@@ -117,8 +116,7 @@ const EMPTY: TaskFormData = {
           className="mt-1 w-full border rounded-lg px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
           value={values.description}
           onChange={(e) => set('description', e.target.value)}
-          aria-describedby={errors.description ? descErrId : undefined}
-        />
+          aria-describedby={errors.description ? descErrId : undefined}/>
         {errors.description && (
           <p id={descErrId} role="alert" className="text-sm text-red-600 mt-1">
             {errors.description}
@@ -145,8 +143,7 @@ const EMPTY: TaskFormData = {
           <select
             className="mt-1 w-full border rounded-lg px-3 py-2"
             value={values.status}
-            onChange={(e) => set('status', e.target.value as TaskFormData['status'])}
-          >
+            onChange={(e) => set('status', e.target.value as TaskFormData['status'])}>
             <option value="todo">to do</option>
             <option value="in_progress">in progress</option>
             <option value="done">done</option>
@@ -159,8 +156,7 @@ const EMPTY: TaskFormData = {
             type="date"
             className="mt-1 w-full border rounded-lg px-3 py-2"
             value={values.dueDate || ''}
-            onChange={(e) => set('dueDate', e.target.value)}
-          />
+            onChange={(e) => set('dueDate', e.target.value)}/>
         </div>
       </div>
 
@@ -169,15 +165,13 @@ const EMPTY: TaskFormData = {
           <button
             type="button"
             onClick={onCancelEdit}
-            className="px-3 py-2 rounded-lg border"
-          >
+            className="px-3 py-2 rounded-lg border">
             Cancel
           </button>
         )}
         <button
           className="px-4 py-2 rounded-lg bg-black text-white disabled:opacity-60"
-          disabled={isInvalid}
-        >
+          disabled={isInvalid}>
           {editing ? 'Save' : 'Add Task'}
         </button>
       </div>

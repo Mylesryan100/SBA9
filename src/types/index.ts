@@ -19,3 +19,7 @@ export interface TaskFilterProps {
     priority?: 'low' | 'medium' | 'high';
   }) => void;
 }
+
+export interface DashboardProps {
+  tasks: Task[];
+}

@@ -34,7 +34,7 @@ function TaskList({ tasks, onAdd, onUpdate, onRemove }: Props) {
   const [addError, setAddError] = useState('');
   const nextOrder = tasks.length ? Math.max(...tasks.map(t => t.order)) + 1 : 1;
   const list = useMemo(() => {
-    
+
     return applyFilters(tasks, {
       query: filters.query,
       status: filters.status,
@@ -73,8 +73,7 @@ function TaskList({ tasks, onAdd, onUpdate, onRemove }: Props) {
             placeholder="Search title/description"
             value={filters.query}
             onChange={(e) => setFilters({ ...filters, query: e.target.value })}
-            aria-label="Search tasks"
-          />
+            aria-label="Search tasks"/>
         </div>
 
         <select
@@ -95,7 +94,7 @@ function TaskList({ tasks, onAdd, onUpdate, onRemove }: Props) {
           value={filters.sortDir}
           onChange={(e) => setFilters({ ...filters, sortDir: e.target.value as SortDir })}
           aria-label="Sort direction"
-        >
+          >
           <option value="asc">Asc</option>
           <option value="desc">Desc</option>
         </select>
@@ -109,8 +108,7 @@ function TaskList({ tasks, onAdd, onUpdate, onRemove }: Props) {
             className="mt-1 w-full border rounded-lg px-3 py-2"
             placeholder="e.g., Prepare sprint report"
             value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-          />
+            onChange={(e) => setNewTitle(e.target.value)}/>
           {addError && <p role="alert" className="text-sm text-red-600 mt-1">{addError}</p>}
         </div>
         <div className="flex items-end gap-2">
@@ -118,8 +116,7 @@ function TaskList({ tasks, onAdd, onUpdate, onRemove }: Props) {
             className="border rounded-lg px-3 py-2 w-full"
             value={newPriority}
             onChange={(e) => setNewPriority(e.target.value as Priority)}
-            aria-label="New task priority"
-          >
+            aria-label="New task priority">
             <option value="low">low</option>
             <option value="medium">medium</option>
             <option value="high">high</option>
