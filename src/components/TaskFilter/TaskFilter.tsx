@@ -9,6 +9,7 @@ interface Props {
   value: Filters;                  
   onChange: (f: Filters) => void; 
   onReset?: () => void;            
+}
 
 const DEFAULTS: Filters = {
   query: '',
