@@ -1,6 +1,6 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
-import type { Task, TaskFormData } from "../../types";
-import { FieldErrors, toTask, validateTask } from "../../utils/taskUtils";
+import type { FormEvent, useEffect, useMemo, useState } from "react";
+import type { Task, TaskForm } from "../../types";
+import type { FieldErrors, toTask, validateTask } from "../../utils/taskUtils";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 
 interface TaskFormProps {
