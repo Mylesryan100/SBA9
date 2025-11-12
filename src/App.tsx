@@ -2,7 +2,6 @@ import { useState } from "react";
 import Dashboard from "./components/DashBoard/DashBoard";
 import type { Task, Status } from "./types";
 
-// Map legacy statuses to your union type
 function mapStatus(s: string): Status {
   switch (s) {
     case "pending":
@@ -16,7 +15,6 @@ function mapStatus(s: string): Status {
   }
 }
 
-// Seed data (converted to full Task objects with ISO dates + order)
 function makeSeed(): Task[] {
   const raw = [
     {
@@ -68,10 +66,10 @@ function makeSeed(): Task[] {
     description: r.description,
     priority: r.priority as Task["priority"],
     status: mapStatus(r.status),
-    dueDate: r.dueDate,        // keep as yyyy-mm-dd; your UI formats it later
+    dueDate: r.dueDate,        
     createdAt: now,
     updatedAt: now,
-    order: i + 1,              // stable manual order
+    order: i + 1,            
   }));
 }
 
@@ -85,9 +83,6 @@ function App() {
       </header>
 
       <main className="max-w-5xl mx-auto p-6">
-        {/* If your Dashboard expects only tasks, this is enough. 
-           If you migrated to the full-state Dashboard we built earlier,
-           pass handlers and filters accordingly. */}
         <Dashboard tasks={tasks} />
       </main>
     </div>
