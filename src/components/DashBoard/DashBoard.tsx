@@ -2,11 +2,7 @@ import { useMemo, useState } from "react";
 import type { Task, Filters } from "../../types";
 import TaskFilter from "../TaskFilter/TaskFilter";
 import { applyFilters } from "../../utils/taskUtils";
-import {
-  ListBulletIcon,
-  CheckBadgeIcon,
-  ClockIcon,
-} from "@heroicons/react/24/outline";
+import { ListBulletIcon, CheckBadgeIcon, ClockIcon, } from "@heroicons/react/24/outline";
 
 const DEBUG = true;
 const log = (...a: unknown[]) => DEBUG && console.log("[Dashboard]", ...a);
@@ -34,16 +30,16 @@ function Dashboard({ tasks }: DashboardProps) {
   const stats = useMemo(() => {
     const total = filtered.length;
     const completed = filtered.filter((t) => t.status === "done").length;
-    const inProgress = filtered.filter((t) => t.status === "in_progress").length;
+    const inProgress = filtered.filter(
+      (t) => t.status === "in_progress"
+    ).length;
     const pending = filtered.filter((t) => t.status === "todo").length;
-
     const recent = [...filtered]
       .sort(
         (a, b) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )
       .slice(0, 5);
-
     const out = { total, completed, inProgress, pending, recent };
     log("stats", out);
     return out;
@@ -62,9 +58,21 @@ function Dashboard({ tasks }: DashboardProps) {
       </div>
 
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mb-6">
-        <StatCard title="Total (filtered)" value={stats.total} Icon={ListBulletIcon} />
-        <StatCard title="Completed" value={stats.completed} Icon={CheckBadgeIcon} />
-        <StatCard title="In Progress" value={stats.inProgress} Icon={ClockIcon} />
+        <StatCard
+          title="Total (filtered)"
+          value={stats.total}
+          Icon={ListBulletIcon}
+        />
+        <StatCard
+          title="Completed"
+          value={stats.completed}
+          Icon={CheckBadgeIcon}
+        />
+        <StatCard
+          title="In Progress"
+          value={stats.inProgress}
+          Icon={ClockIcon}
+        />
         <StatCard title="Pending" value={stats.pending} Icon={ClockIcon} />
       </section>
 
@@ -104,8 +112,8 @@ function Dashboard({ tasks }: DashboardProps) {
           <h3 className="font-medium mb-2">Overview</h3>
           <p className="text-slate-600 dark:text-slate-300 text-sm">
             Use the search, status, and priority filters to narrow results. Sort
-            options (title, created, due, priority, manual) are included in the filter
-            state and applied via <code>applyFilters</code>.
+            options (title, created, due, priority, manual) are included in the
+            filter state and applied via <code>applyFilters</code>.
           </p>
         </div>
       </section>
