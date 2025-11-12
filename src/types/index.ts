@@ -1,3 +1,12 @@
+export type Priority = 'low' | 'medium' | 'high';
+export type Status   = 'todo' | 'in_progress' | 'done';
+export type SortKey  = 'order' | 'createdAt' | 'dueDate' | 'priority' | 'title';
+export type SortDir  = 'asc' | 'desc';
+export type Theme    = 'light' | 'dark';
+
+
+
+
 
 export interface Task {
     id: string;

@@ -18,7 +18,7 @@ const DEFAULTS: Filters = {
   sortDir: 'asc',
 };
 
-export default function TaskFilter({ value, onChange, onReset }: Props) {
+function TaskFilter({ value, onChange, onReset }: Props) {
   const [f, setF] = useState<Filters>(value ?? DEFAULTS);
 
   useEffect(() => {
@@ -140,3 +140,5 @@ export default function TaskFilter({ value, onChange, onReset }: Props) {
     </section>
   );
 }
+
+export default TaskFilter;
